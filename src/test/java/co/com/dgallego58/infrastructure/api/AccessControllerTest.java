@@ -55,7 +55,7 @@ class AccessControllerTest {
                                                        {
                                                          "name": "Juan Rodriguez",
                                                          "email": "juan@rodriguez.org",
-                                                         "password": "hunter2",
+                                                         "password": "Hunter234567",
                                                          "phones": [
                                                            {
                                                              "number": "1234567",

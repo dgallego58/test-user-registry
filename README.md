@@ -46,10 +46,23 @@ cd .\test-user-registry\
 
 ### Consideraciones sobre arquitectura
 
+![flowchart](\docs\flowchart.png)
+
 - Se siguió una arquitectura hexagonal, separada en 3 capas, no se siguió la notación de puertos y adaptadores ya que no había
   validaciones de dominio dentro de los requisitos
 - En la capa de aplicación, está la configuración del caso de uso y utilería
 - En la capa de domain está el usecase de acceso y consulta de contactos (core domain) que usa los otros adaptadores
 - En la capa de infra está la configuración de seguridad y los adaptadores cuyas abstracciones están en los model del domain
 
+### Evidencia de pruebas
+
+- Cómo se especificó, la cobertura está al 74% se puede verificar lanzando: `.\gradlew clean build test jacocoTestReport`
+  la ruta del reporte se encuentra en la ruta: `build/reports/jacoco/test/html/index.html`
+  la ruta de los success cases se encuentra en: `build/reports/tests/test/index.html`
+  ambas en la raíz del proyecto
+- No se hizo mutation testing, pero se hizo un integration con todo el caso de uso de la aplicación en la clase
+  `co/com/dgallego58/GlobalIntegrationTest.java`
+
+
+![coverage](\docs\coverage.png)
 

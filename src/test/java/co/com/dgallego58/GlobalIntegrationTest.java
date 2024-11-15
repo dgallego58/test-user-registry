@@ -63,7 +63,7 @@ class GlobalIntegrationTest {
                                                        {
                                                          "name": "Juan Rodriguez",
                                                          "email": "juan@rodriguez.org",
-                                                         "password": "hunter2",
+                                                         "password": "Hunter234567",
                                                          "phones": [
                                                            {
                                                              "number": "1234567",
@@ -82,7 +82,7 @@ class GlobalIntegrationTest {
                                                                     .content("""
                                                                              {
                                                                                "username": "Juan Rodriguez",
-                                                                               "password": "hunter2"
+                                                                               "password": "Hunter234567"
                                                                              }
                                                                              """)
                                      )
