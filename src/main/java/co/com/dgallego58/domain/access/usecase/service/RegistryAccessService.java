@@ -9,8 +9,10 @@ import java.time.Instant;
 
 public class RegistryAccessService implements AuthHandler {
 
+    public static String SIMPLE_EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
     private final AuthHandler authHandler;
     private final UserRepository userRepository;
+
 
     public RegistryAccessService(AuthHandler authHandler, UserRepository userRepository) {
         this.authHandler = authHandler;
@@ -33,11 +35,22 @@ public class RegistryAccessService implements AuthHandler {
 
     @Override
     public UserRegistered register(UserRegistry userRegistry) {
+        var doesMatch = userRegistry.email().matches(SIMPLE_EMAIL_REGEX);
+        if (!doesMatch) {
+            throw new UnrecognizableEmailException("Mail not valid");
+        }
+
         var registered = authHandler.register(userRegistry);
         var token = authHandler.authenticate(userRegistry.name(), userRegistry.password());
         var updated = registered.toBuilder().accessToken(token).active(true).build();
         return userRepository.save(updated);
 
+    }
+
+    public static class UnrecognizableEmailException extends RuntimeException {
+        public UnrecognizableEmailException(String message) {
+            super(message);
+        }
     }
 
 }

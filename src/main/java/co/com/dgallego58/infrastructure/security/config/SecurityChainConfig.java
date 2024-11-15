@@ -8,6 +8,8 @@ import co.com.dgallego58.infrastructure.security.filter.JwtControl;
 import co.com.dgallego58.infrastructure.security.filter.JwtFilter;
 import co.com.dgallego58.infrastructure.security.filter.JwtValidation;
 import co.com.dgallego58.infrastructure.security.filter.jwt.Sanitizers;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,6 +27,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity(debug = true)
+@SecurityScheme(
+        name = "Bearer Authentication",
+        type = SecuritySchemeType.HTTP,
+        bearerFormat = "JWT",
+        scheme = "bearer"
+)
 public class SecurityChainConfig {
 
     private final JsonUtil jsonUtil;

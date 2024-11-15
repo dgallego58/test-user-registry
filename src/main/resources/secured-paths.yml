@@ -2,3 +2,6 @@ public-access:
   paths:
     - /access/**
     - /h2-console/**
+    - /swagger-ui/**
+    - /swagger-ui.*
+    - /v3/api-docs*/**
