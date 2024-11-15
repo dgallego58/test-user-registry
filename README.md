@@ -20,14 +20,15 @@ orden de ejecución:
 
 Windows en un terminal:
 
-```shell
+```bash
 setx JWT_SECRET 9lfw0a1zcks449lputgaghsh7ilxt04c
 
 cd .\test-user-registry\
 
-.\gradlew clean build bootRun
+.\gradlew clean build -x test bootRun
 ```
 
+#### RUTA swagger para el API: http://localhost:8080/swagger-ui.html
 
 ### Consideraciones sobre los requisitos
 
