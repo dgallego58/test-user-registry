@@ -1,0 +1,4 @@
+public-access:
+  paths:
+    - /access/**
+    - /h2-console/**

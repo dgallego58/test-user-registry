@@ -1,6 +1,6 @@
-package co.com.dgallego58.domain.access.security;
+package co.com.dgallego58.domain.access.usecase;
 
-import co.com.dgallego58.domain.access.UserRegistry;
+import co.com.dgallego58.domain.access.model.UserRegistry;
 
 public interface AuthHandler {
 

@@ -1,8 +1,8 @@
-package co.com.dgallego58.infrastructure.rest;
+package co.com.dgallego58.infrastructure.api;
 
-import co.com.dgallego58.domain.access.User;
-import co.com.dgallego58.domain.access.UserRegistry;
-import co.com.dgallego58.domain.access.security.AuthHandler;
+import co.com.dgallego58.domain.access.model.User;
+import co.com.dgallego58.domain.access.model.UserRegistry;
+import co.com.dgallego58.domain.access.usecase.AuthHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;

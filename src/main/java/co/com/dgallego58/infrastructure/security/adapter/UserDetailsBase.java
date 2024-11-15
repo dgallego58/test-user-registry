@@ -1,6 +1,6 @@
-package co.com.dgallego58.infrastructure.security;
+package co.com.dgallego58.infrastructure.security.adapter;
 
-import co.com.dgallego58.domain.access.User;
+import co.com.dgallego58.domain.access.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

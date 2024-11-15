@@ -1,4 +1,4 @@
-package co.com.dgallego58.infrastructure.data;
+package co.com.dgallego58.infrastructure.data.repository.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

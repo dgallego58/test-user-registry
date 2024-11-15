@@ -1,4 +1,6 @@
-package co.com.dgallego58.domain.access;
+package co.com.dgallego58.domain.access.model;
+
+import co.com.dgallego58.domain.contact.model.Contact;
 
 import java.util.ArrayList;
 import java.util.List;

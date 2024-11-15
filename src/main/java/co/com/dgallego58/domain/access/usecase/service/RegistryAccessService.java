@@ -1,10 +1,9 @@
-package co.com.dgallego58.domain.access.security.service;
+package co.com.dgallego58.domain.access.usecase.service;
 
-import co.com.dgallego58.domain.access.UserRegistry;
-import co.com.dgallego58.domain.access.security.AuthHandler;
+import co.com.dgallego58.domain.access.model.UserRegistry;
+import co.com.dgallego58.domain.access.usecase.AuthHandler;
 
 public class RegistryAccessService implements AuthHandler {
-
 
     private final AuthHandler authHandler;
 
@@ -19,7 +18,6 @@ public class RegistryAccessService implements AuthHandler {
 
     @Override
     public void register(UserRegistry userRegistry) {
-        System.out.println("registering user");
         authHandler.register(userRegistry);
     }
 

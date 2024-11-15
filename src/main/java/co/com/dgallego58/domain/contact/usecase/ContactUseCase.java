@@ -1,8 +1,8 @@
-package co.com.dgallego58.domain.access.contact;
+package co.com.dgallego58.domain.contact.usecase;
 
 
-import co.com.dgallego58.domain.access.Contact;
-import co.com.dgallego58.domain.access.model.ContactRepository;
+import co.com.dgallego58.domain.contact.model.Contact;
+import co.com.dgallego58.domain.contact.model.ContactRepository;
 
 import java.util.List;
 

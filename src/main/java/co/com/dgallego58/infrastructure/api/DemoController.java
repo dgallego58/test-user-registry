@@ -1,7 +1,7 @@
-package co.com.dgallego58.infrastructure.rest;
+package co.com.dgallego58.infrastructure.api;
 
-import co.com.dgallego58.domain.access.Contact;
-import co.com.dgallego58.domain.access.contact.ContactUseCase;
+import co.com.dgallego58.domain.contact.model.Contact;
+import co.com.dgallego58.domain.contact.usecase.ContactUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

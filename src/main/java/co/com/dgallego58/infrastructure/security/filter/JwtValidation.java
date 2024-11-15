@@ -1,10 +1,11 @@
 package co.com.dgallego58.infrastructure.security.filter;
 
-public interface JwtControl {
+import java.util.Map;
+
+public interface JwtValidation {
 
 
-    String validateThenDecode(String token);
+    Map<String, Object> validateThenDecode(String token);
 
-    <T> T decode(String token, Class<T> expectedObj);
 
 }
