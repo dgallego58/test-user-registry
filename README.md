@@ -47,7 +47,7 @@ cd .\test-user-registry\
 
 ### Consideraciones sobre arquitectura
 
-![flowchart](\docs\flowchart.png)
+![flowchart](./docs/flowchart.png)
 
 - Se siguió una arquitectura hexagonal, separada en 3 capas, no se siguió la notación de puertos y adaptadores ya que no había
   validaciones de dominio dentro de los requisitos
@@ -65,5 +65,5 @@ cd .\test-user-registry\
   `co/com/dgallego58/GlobalIntegrationTest.java`
 
 
-![coverage](\docs\coverage.png)
+![coverage](./docs/coverage.png)
 
