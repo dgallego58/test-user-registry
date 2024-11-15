@@ -67,3 +67,40 @@ cd .\test-user-registry\
 
 ![coverage](./docs/coverage.png)
 
+
+### Ejecución:
+
+```bash
+POST http://localhost:8080/access/registry
+Content-Type: application/json
+
+{
+  "name": "JuanRodriguez",
+  "email": "juan@rodriguez.org",
+  "password": "Untestrandom23",
+  "phones": [
+    {
+      "number": "1234567",
+      "cityCode": "1",
+      "countryCode": "57"
+    }
+  ]
+}
+
+
+###
+
+POST http://localhost:8080/access/login
+Content-Type: application/json
+
+{
+  "username": "Juan Rodriguez",
+  "password": "hunter2" ## <- request fallido
+}
+
+### 
+GET http://localhost:8080/demo/Juan%20Rodriguez
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W10sInVzZXJuYW1lIjoiSnVhbiBSb2RyaWd1ZXoiLCJlbmFibGVkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJhY2NvdW50Tm9uTG9ja2VkIjp0cnVlLCJleHAiOjE3MzE2NDEzMjh9.oK7N_sQRzmE1oVYHcxSIq1jEXzuZkq1RufdSREttl3w
+
+
+```
