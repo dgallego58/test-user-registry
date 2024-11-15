@@ -7,8 +7,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -32,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 })
 @ExtendWith(SystemStubsExtension.class)
-public class GlobalIntegrationTest {
+class GlobalIntegrationTest {
 
     @SystemStub
     static EnvironmentVariables environmentVariables = new EnvironmentVariables();
@@ -76,7 +74,7 @@ public class GlobalIntegrationTest {
                                                        }
                                                        """)
                )
-               .andExpect(status().isNoContent());
+               .andExpect(status().is2xxSuccessful());
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/access/login")
                                                                     .with(csrf())

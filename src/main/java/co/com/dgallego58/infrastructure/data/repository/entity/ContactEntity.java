@@ -8,6 +8,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Entity
 @Table
 @Getter
@@ -16,7 +18,7 @@ public class ContactEntity {
 
     @Id
     @GeneratedValue
-    private int id;
+    private UUID id;
     private String number;
     private String cityCode;
     private String countryCode;

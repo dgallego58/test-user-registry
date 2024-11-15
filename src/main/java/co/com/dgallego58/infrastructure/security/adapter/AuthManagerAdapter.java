@@ -1,5 +1,6 @@
 package co.com.dgallego58.infrastructure.security.adapter;
 
+import co.com.dgallego58.domain.access.model.UserRegistered;
 import co.com.dgallego58.domain.access.model.UserRegistry;
 import co.com.dgallego58.domain.access.usecase.AuthHandler;
 import co.com.dgallego58.infrastructure.data.repository.ContactRepo;
@@ -13,6 +14,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Instant;
 
 @Service
 @RequiredArgsConstructor
@@ -36,10 +39,14 @@ public class AuthManagerAdapter implements AuthHandler {
 
     @Override
     @Transactional
-    public void register(UserRegistry userRegistry) {
+    public UserRegistered register(UserRegistry userRegistry) {
         var userEntity = new UserEntity();
         userEntity.setUsername(userRegistry.name());
         userEntity.setEmail(userRegistry.email());
+        userEntity.setCreatedAt(Instant.now());
+        userEntity.setModifiedAt(Instant.now());
+        userEntity.setLastLog(Instant.now());
+        userEntity.setActive(true);
 
         var encoded = passwordEncoder.encode(userRegistry.password());
         userEntity.setPassword(encoded);
@@ -52,11 +59,19 @@ public class AuthManagerAdapter implements AuthHandler {
                         contact.setCityCode(c.cityCode());
                         contact.setCountryCode(c.countryCode());
                         contact.setNumber(c.number());
-
                         contact.setUser(savedUser);
-
                         contactRepo.save(contact);
                     });
+
+        return UserRegistered
+                .builder()
+                .createdAt(savedUser.getCreatedAt())
+                .id(savedUser.getId())
+                .userRegistry(userRegistry)
+                .lastLogin(savedUser.getLastLog())
+                .updatedAt(savedUser.getModifiedAt())
+                .active(savedUser.isActive())
+                .build();
 
 
     }

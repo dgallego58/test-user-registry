@@ -1,5 +1,6 @@
 package co.com.dgallego58.domain.access.usecase;
 
+import co.com.dgallego58.domain.access.model.UserRegistered;
 import co.com.dgallego58.domain.access.model.UserRegistry;
 
 public interface AuthHandler {
@@ -7,7 +8,7 @@ public interface AuthHandler {
 
     String authenticate(String username, String password);
 
-    void register(UserRegistry userRegistry);
+    UserRegistered register(UserRegistry userRegistry);
 
 
 }

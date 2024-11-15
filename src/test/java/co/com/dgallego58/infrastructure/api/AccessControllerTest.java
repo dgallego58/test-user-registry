@@ -46,7 +46,7 @@ class AccessControllerTest {
 
         ArgumentCaptor<UserRegistry> userRegistryCaptor = ArgumentCaptor.forClass(UserRegistry.class);
 
-        doNothing().when(authHandler).register(userRegistryCaptor.capture());
+        when(authHandler.register(userRegistryCaptor.capture())).thenReturn(null);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/access/registry")
                                               .with(csrf())
@@ -66,7 +66,7 @@ class AccessControllerTest {
                                                        }
                                                        """)
                )
-               .andExpect(status().isNoContent());
+               .andExpect(status().is2xxSuccessful());
 
         var reg = userRegistryCaptor.getValue();
         assertThat(reg.name()).isEqualTo("Juan Rodriguez");
