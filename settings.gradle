@@ -1,2 +1,23 @@
 rootProject.name = 'test-user-registry'
 
+
+include 'database'
+project(':database').projectDir = file('infrastructure/database')
+
+include 'security'
+project(':security').projectDir = file('infrastructure/security')
+
+include 'apirest'
+project(':apirest').projectDir = file('infrastructure/apirest')
+
+include 'utils'
+project(':utils').projectDir = file('infrastructure/utils')
+
+include 'service'
+project(':service').projectDir = file('application/service')
+
+include 'usecase'
+project(':usecase').projectDir = file('domain/usecase')
+
+include 'model'
+project(':model').projectDir = file('domain/model')

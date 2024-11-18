@@ -1,0 +1,11 @@
+package co.com.dgallego58.security.filter;
+
+import java.util.Map;
+
+public interface JwtValidation {
+
+
+    Map<String, Object> validateThenDecode(String token);
+
+
+}

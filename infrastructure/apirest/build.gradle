@@ -1,0 +1,8 @@
+plugins {
+    id 'spring-boot'
+}
+
+dependencies {
+    api project(':usecase')
+    implementation project(':security')
+}

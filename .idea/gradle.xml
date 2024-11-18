@@ -4,11 +4,30 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/buildSrc" name="buildSrc">
+                <projects>
+                  <project path="$PROJECT_DIR$/buildSrc" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../../gradle/gradle-8.7" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/application/service" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/domain/model" />
+            <option value="$PROJECT_DIR$/domain/usecase" />
+            <option value="$PROJECT_DIR$/infrastructure/apirest" />
+            <option value="$PROJECT_DIR$/infrastructure/database" />
+            <option value="$PROJECT_DIR$/infrastructure/security" />
+            <option value="$PROJECT_DIR$/infrastructure/utils" />
           </set>
         </option>
       </GradleProjectSettings>

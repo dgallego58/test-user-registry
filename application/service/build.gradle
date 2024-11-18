@@ -1,0 +1,16 @@
+plugins {
+    id 'spring-boot'
+}
+
+dependencies {
+
+    implementation project(':model')
+    implementation project(':usecase')
+
+    implementation project(':utils')
+    implementation project(':apirest')
+    implementation project(':database')
+    implementation project(':security')
+
+}
+

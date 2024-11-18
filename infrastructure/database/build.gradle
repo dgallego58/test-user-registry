@@ -1,0 +1,9 @@
+plugins {
+    id 'spring-boot'
+}
+
+dependencies {
+    implementation project(':model')
+    runtimeOnly 'com.h2database:h2'
+
+}

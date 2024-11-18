@@ -1,0 +1,7 @@
+plugins {
+    id 'jackson-json'
+}
+
+dependencies {
+    implementation project(':model')
+}

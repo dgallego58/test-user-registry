@@ -1,0 +1,8 @@
+plugins {
+    id 'core'
+}
+
+dependencies {
+    api project(':model')
+}
+
