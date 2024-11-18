@@ -28,7 +28,6 @@ public class AccessController {
     }
 
     @PostMapping(path = "/registry")
-    @Transactional
     public ResponseEntity<UserRegistered> registry(@Valid @RequestBody UserRegistry userRegistry) {
         log.info("Registry request received");
         var access = userAccessUseCase.register(userRegistry.toModel());
