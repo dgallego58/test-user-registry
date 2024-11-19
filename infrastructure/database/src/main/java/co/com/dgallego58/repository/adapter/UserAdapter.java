@@ -46,7 +46,6 @@ public class UserAdapter implements UserRepository {
 
 
         UnaryOperator<UserEntity> merge = userEntity -> {
-            //userEntity.setId(user.getId());
             userEntity.setEmail(user.getUserRegistry().email());
             userEntity.setUsername(user.getUserRegistry().name());
             userEntity.setPassword(user.getUserRegistry().password());

@@ -20,12 +20,14 @@ public class ConfigUseCase {
 
     @Bean
     public RegistryAccessUseCaseService registryAccessService(PlatformTransactionManager platformTransactionManager,
-                                                              AuthHandler authHandler, UserRepository userRepository) {
+                                                              AuthHandler authHandler,
+                                                              UserRepository userRepository,
+                                                              ContactRepository contactRepository) {
 
         var proxy = new TransactionProxyFactoryBean();
 
         proxy.setTransactionManager(platformTransactionManager);
-        proxy.setTarget(new RegistryAccessUseCaseService(authHandler, userRepository));
+        proxy.setTarget(new RegistryAccessUseCaseService(authHandler, userRepository, contactRepository));
 
         var trxAttributes = new Properties();
         trxAttributes.setProperty("*", "PROPAGATION_REQUIRED");

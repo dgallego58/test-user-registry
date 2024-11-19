@@ -4,6 +4,7 @@ import co.com.dgallego58.domain.access.model.AuthHandler;
 import co.com.dgallego58.domain.access.model.UserRegistered;
 import co.com.dgallego58.domain.access.model.UserRegistry;
 import co.com.dgallego58.domain.access.model.UserRepository;
+import co.com.dgallego58.domain.contact.model.ContactRepository;
 
 import java.time.Instant;
 
@@ -12,11 +13,15 @@ public class RegistryAccessUseCaseService implements UserAccessUseCase {
     public static final String SIMPLE_EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
     private final AuthHandler authHandler;
     private final UserRepository userRepository;
+    private final ContactRepository contactRepository;
 
 
-    public RegistryAccessUseCaseService(AuthHandler authHandler, UserRepository userRepository) {
+    public RegistryAccessUseCaseService(AuthHandler authHandler,
+                                        UserRepository userRepository,
+                                        ContactRepository contactRepository) {
         this.authHandler = authHandler;
         this.userRepository = userRepository;
+        this.contactRepository = contactRepository;
     }
 
     @Override
@@ -38,7 +43,6 @@ public class RegistryAccessUseCaseService implements UserAccessUseCase {
         if (!doesMatch) {
             throw new UnrecognizableEmailException("mail validation");
         }
-
         UserRegistered user = userRepository.getUser(userRegistry.name());
         if (user != null) {
             throw new UserAlreadyRegisteredException("username validation");
@@ -60,9 +64,9 @@ public class RegistryAccessUseCaseService implements UserAccessUseCase {
                                            .build();
 
         var userSaved = userRepository.save(userRegistered);
+        contactRepository.save(userRegistry);
 
         var token = authHandler.authenticate(userRegistry.name(), userRegistry.password());
-
         var userWithToken = userSaved.toBuilder().accessToken(token).build();
 
         return userRepository.save(userWithToken);

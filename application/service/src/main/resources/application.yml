@@ -19,7 +19,7 @@ spring:
     import: classpath:secured-paths.yml
 logging:
   level:
-    org.springframework.security: DEBUG
+    org.springframework.security: info
 springdoc:
   swagger-ui:
     enabled: true
