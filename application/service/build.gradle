@@ -2,6 +2,12 @@ plugins {
     id 'spring-boot'
 }
 
+bootJar{
+    enabled = true
+    archiveFileName = "${project.parent.name}-${project.name}-bootjar-${version}.${archiveExtension.get()}"
+}
+
+
 dependencies {
 
     implementation project(':model')
